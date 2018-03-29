@@ -1,0 +1,35 @@
+
+#search {
+  display: none;
+}
+
+mat-form-field {
+  /* Chrome/Opera/Safari */
+  color: #7d7d7d;
+}
+
+.mat-input-infix {
+  width: 760px;
+}
+
+.color {
+  color: #fff;
+}
+
+.width {
+  width: 0px;
+}
+
+.marginLeft {
+  margin-left: 80px;
+}
+
+.button-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
