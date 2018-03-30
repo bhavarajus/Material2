@@ -1,18 +1,17 @@
-import { Component, OnInit } from '@angular/core';
-declare var $: any;
+import { Component } from '@angular/core';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit {
-  ngOnInit() {
-    this.fucntion();
+export class AppComponent {
+  searchInput = false;
+  search: any;
+  searchInputClick = () => {
+    this.searchInput = true;
   }
-  fucntion = () => {
-    $("#searchToggle").click(function() {
-        $("#search").toggle();
-        $("#doNotSearch").toggle();
-    });
+  closeSearchClick = () => {
+    this.searchInput = false;
+    this.search = '';
   }
 }
