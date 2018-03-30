@@ -2,7 +2,7 @@
   <button mat-button class="color">
     <img style="width: 20px" src="../../assets/apple-32.gif">
   </button>
-  <div *ngIf="searchInput" style="width: 47.8%">
+  <div *ngIf="searchInput" class="searchInputDiv">
     <input class="searchInput color" type="text" placeholder="Search" [(ngModel)]="search">
   </div>
   <div *ngIf="!searchInput">
@@ -28,3 +28,4 @@
     <img style="width: 20px" src="../../assets/x-mark-32.gif">
   </button>
 </mat-toolbar>
+<mat-toolbar *ngIf="searchInput" class="backgroundSearch"></mat-toolbar>
