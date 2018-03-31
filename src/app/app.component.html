@@ -1,31 +1,40 @@
-<mat-toolbar class="toolbarCss">
-  <button mat-button class="color">
-    <img style="width: 20px" src="../../assets/apple-32.gif">
-  </button>
-  <div *ngIf="searchInput" class="searchInputDiv">
-    <input class="searchInput color" type="text" placeholder="Search" [(ngModel)]="search">
-  </div>
-  <div *ngIf="!searchInput">
-    <button mat-button class="color">Mac</button>
-    <span class="example-spacer"></span>
-    <button mat-button class="color">iPad</button>
-    <span class="example-spacer"></span>
-    <button mat-button class="color">iPhone</button>
-    <span class="example-spacer"></span>
-    <button mat-button class="color">Watch</button>
-    <span class="example-spacer"></span>
-    <button mat-button class="color">TV</button>
-    <span class="example-spacer"></span>
-    <button mat-button class="color">Music</button>
-    <span class="example-spacer"></span>
-    <button mat-button class="color">Support</button>
-    <span class="example-spacer"></span>
-  </div>
-  <button mat-button class="color" *ngIf="!searchInput" (click)="searchInputClick()">
-    <img style="width: 20px" src="../../assets/search-12-32.gif">
-  </button>
-  <button mat-button class="color" *ngIf="searchInput" (click)="closeSearchClick()">
-    <img style="width: 20px" src="../../assets/x-mark-32.gif">
-  </button>
-</mat-toolbar>
-<mat-toolbar *ngIf="searchInput" class="backgroundSearch"></mat-toolbar>
+<form class="toolbarForm">
+  <mat-toolbar class="toolbarCss">
+    <button mat-button class="color">
+      <img class="imageWidth" src="../../assets/apple-32.gif">
+    </button>
+    <button *ngIf="!searchInput" mat-button class="color">Mac</button>
+    <span *ngIf="!searchInput" class="spacer"></span>
+    <button *ngIf="!searchInput" mat-button class="color">iPad</button>
+    <span *ngIf="!searchInput" class="spacer"></span>
+    <button *ngIf="!searchInput" mat-button class="color">iPhone</button>
+    <span *ngIf="!searchInput" class="spacer"></span>
+    <button *ngIf="!searchInput" mat-button class="color">Watch</button>
+    <span *ngIf="!searchInput" class="spacer"></span>
+    <button *ngIf="!searchInput" mat-button class="color">TV</button>
+    <span *ngIf="!searchInput" class="spacer"></span>
+    <button *ngIf="!searchInput" mat-button class="color">Music</button>
+    <span *ngIf="!searchInput" class="spacer"></span>
+    <button *ngIf="!searchInput" mat-button class="color">Support</button>
+    <span *ngIf="!searchInput" class="spacer"></span>
+    <mat-icon *ngIf="searchInput" class="iconSearch">search</mat-icon>
+    <div *ngIf="searchInput">
+      <mat-form-field class="formWidth" floatPlaceholder="never">
+        <textarea matInput class="searchInput color" type="text" placeholder="Search" rows="1" cols="1" [matAutocomplete]="auto"
+          [formControl]="valueCtrl" [(ngModel)]="search"></textarea>
+        <mat-autocomplete #auto="matAutocomplete">
+          <mat-option *ngFor="let value of allValues | async" [value]="value.name">
+            <span>{{ value.name }}</span>
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+      <button mat-button *ngIf="searchInput" (click)="closeSearchClick()">
+        <mat-icon style="color: #fff">clear</mat-icon>
+      </button>
+    </div>
+    <button mat-button class="color" *ngIf="!searchInput" (click)="searchInputClick()">
+      <mat-icon *ngIf="!searchInput" class="icon" style="color: #fff">search</mat-icon>
+    </button>
+  </mat-toolbar>
+  <mat-toolbar *ngIf="searchInput" class="backgroundSearch"></mat-toolbar>
+</form>

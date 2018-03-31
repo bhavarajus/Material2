@@ -8,7 +8,7 @@
   color: #fff;
 }
 
-.example-spacer {
+.spacer {
   flex: 1 1 auto;
 }
 
@@ -16,15 +16,45 @@
   width: 47.9%;
 }
 
+.imageWidth {
+  width: 20px;
+}
+
+.iconSearch {
+  color: #fff;
+  margin-right: 10px;
+}
+
+.formWidth {
+  width: 1114px;
+  max-width: 55%;
+  max-height: 30%;
+}
+
 .searchInput {
   width: 100%;
   border: none;
   outline: transparent;
-  background-color: transparent;
 }
 
 .backgroundSearch {
   background-color: rgba(0, 0, 0, 0.4);
   z-index: 9998;
-  height: 930px
+  height: 930px;
+}
+
+:host /deep/ .mat-input-element {
+  margin-top: 7px;
+  margin-left: 6px;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+:host /deep/ .mat-input-placeholder {
+  color: gray;
+  margin-top: 14px;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
 }
