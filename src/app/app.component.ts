@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Observable } from 'rxjs/Observable';
 import { startWith } from 'rxjs/operators/startWith';
+// map() it passes each source value through a function to get changing output values.
 import { map } from 'rxjs/operators/map';
 declare var $: any;
 @Component({
