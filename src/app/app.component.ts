@@ -13,7 +13,7 @@ export class AppComponent {
   searchInput = false;
   search: any;
   valueCtrl: FormControl;
-  allValues: any;
+  allValues: Observable<any[]>;
   value = [
     { name: 'Ahmed' },
     { name: 'Vamshi' },
