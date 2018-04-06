@@ -17,24 +17,54 @@
     <span *ngIf="!searchInput" class="spacer"></span>
     <button *ngIf="!searchInput" mat-button class="color">Support</button>
     <span *ngIf="!searchInput" class="spacer"></span>
-    <mat-icon *ngIf="searchInput" class="iconSearch">search</mat-icon>
-    <div *ngIf="searchInput">
+    <mat-icon *ngIf="searchInput" class="iconSearch" [@enterAnimation]>search</mat-icon>
+    <div *ngIf="searchInput" [@enterAnimation]>
       <mat-form-field class="formWidth" floatPlaceholder="never">
-        <textarea matInput class="searchInput color" type="text" placeholder="Search" rows="1" cols="1" [matAutocomplete]="auto"
-          [formControl]="valueCtrl" [(ngModel)]="search"></textarea>
-        <mat-autocomplete #auto="matAutocomplete">
-          <mat-option *ngFor="let value of allValues | async" [value]="value.name">
-            <span>{{ value.name }}</span>
-          </mat-option>
-        </mat-autocomplete>
+        <textarea matInput class="searchInput color" type="text" placeholder="Search" rows="1" cols="1" [formControl]="valueCtrl"
+          [(ngModel)]="search"></textarea>
+        <button mat-button *ngIf="search" matSuffix mat-icon-button aria-label="Clear" (click)="search=''">
+          <mat-icon style="color: #fff">close</mat-icon>
+        </button>
       </mat-form-field>
-      <button mat-button *ngIf="searchInput" (click)="closeSearchClick()">
-        <mat-icon style="color: #fff">clear</mat-icon>
-      </button>
     </div>
-    <button mat-button class="color" *ngIf="!searchInput" (click)="searchInputClick()">
-      <mat-icon *ngIf="!searchInput" class="icon" style="color: #fff">search</mat-icon>
+    <button mat-button class="color" (click)="searchInputClick()">
+      <mat-icon class="icon" style="color: #fff">search</mat-icon>
     </button>
   </mat-toolbar>
-  <mat-toolbar *ngIf="searchInput" class="backgroundSearch"></mat-toolbar>
+  <div *ngIf="searchInput" class="backgroundSearch">
+    <mat-card class="cardStyle" [@enterAnimation]>
+      <mat-grid-list cols="1" rowHeight="50px">
+        <mat-grid-tile>
+          <mat-card-header>
+            <mat-card-title style="margin-bottom: 0px;">Best Match</mat-card-title>
+          </mat-card-header>
+          <mat-expansion-panel>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                Filters
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <mat-form-field>
+              <input matInput placeholder="First name">
+            </mat-form-field>
+            <mat-form-field>
+              <input matInput placeholder="Age">
+            </mat-form-field>
+          </mat-expansion-panel>
+        </mat-grid-tile>
+      </mat-grid-list>
+      <hr/>
+      <mat-card-content malihu-scrollbar>
+        <mat-grid-list cols="1" rowHeight="50px">
+          <mat-grid-tile *ngFor="let value of values">
+            <img class="imageWidthData" src="http://localhost:4001/assets/{{value.image}}" style="margin-right: 15px;">
+            <mat-card class="matCardStyle">
+              <mat-card-title class="matCardTitleStyle">{{value.name}}</mat-card-title>
+              <mat-card-subtitle class="matCardSubtitleStyle">{{value.roleAndPlace}}</mat-card-subtitle>
+            </mat-card>
+          </mat-grid-tile>
+        </mat-grid-list>
+      </mat-card-content>
+    </mat-card>
+  </div>
 </form>

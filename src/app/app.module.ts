@@ -4,7 +4,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ToolBarModule } from './toolbar.module';
-
+import { MalihuScrollbarModule } from 'ngx-malihu-scrollbar';
 @NgModule({
   declarations: [
     AppComponent
@@ -14,6 +14,7 @@ import { ToolBarModule } from './toolbar.module';
     BrowserAnimationsModule,
     ToolBarModule,
     FormsModule,
+    MalihuScrollbarModule.forRoot(),
     ReactiveFormsModule
   ],
   providers: [],

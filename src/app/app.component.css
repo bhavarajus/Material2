@@ -12,12 +12,16 @@
   flex: 1 1 auto;
 }
 
-.searchInputDiv {
-  width: 47.9%;
-}
-
 .imageWidth {
   width: 20px;
+}
+
+.imageWidthDropDown {
+  height: 19px;
+}
+
+.imageWidthData {
+  width: 41px;
 }
 
 .iconSearch {
@@ -58,3 +62,36 @@
   font-size: 14px;
   font-weight: 500;
 }
+
+:host /deep/ .mat-grid-tile .mat-figure {
+  justify-content: baseline;
+  padding-bottom: 10px;
+}
+
+:host /deep/ .mat-card:not([class*=mat-elevation-z]) {
+  box-shadow: none;
+}
+
+.cardStyle {
+  width: 655px;
+  margin-left: 109px;
+}
+
+.matCardStyle {
+  width: 174px;
+}
+
+.matCardTitleStyle {
+  font-size: 14px;
+  margin-bottom: 0px;
+}
+
+.matCardSubtitleStyle {
+  font-size: 12px;
+}
+
+.mCustomScrollbar {
+  height: 304px;
+  touch-action: pinch-zoom;
+}
+
