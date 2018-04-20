@@ -1,4 +1,4 @@
-<form class="toolbarForm">
+<!-- <form class="toolbarForm">
   <mat-toolbar class="toolbarCss">
     <button mat-button class="color">
       <img class="imageWidth" src="../../assets/apple-32.gif">
@@ -66,5 +66,68 @@
         </mat-grid-list>
       </mat-card-content>
     </mat-card>
+  </div>
+</form> -->
+<form class="toolbarForm">
+  <mat-toolbar color="primary">
+      <span style="margin-right: 75px;">Sudheeksha</span>
+      <span *ngIf="!searchInput" class="example-spacer"></span>
+      <div *ngIf="searchInput" class="example-spacer" [@enterAnimation]>
+          <mat-form-field floatPlaceholder="never" class="textareaStyle">
+              <textarea matInput type="text" class="whiteColor" placeholder="Search" rows="1" cols="1" name="search" [(ngModel)]="search" style="border-color: #fff"></textarea>
+              <button mat-button matSuffix mat-icon-button aria-label="Clear" (click)="search=''">
+    <mat-icon class="whiteColor">close</mat-icon>
+    </button>
+          </mat-form-field>
+      </div>
+      <button mat-button (click)="searchInputClick()">
+  <i class="material-icons">search</i>
+  </button>
+      <mat-icon class="example-icon">play_for_work</mat-icon>
+
+  </mat-toolbar>
+
+  <!-- <mat-menu #menu="matMenu">
+  <button mat-menu-item [routerLink]="['/checkbox']">checkbox</button>
+  <button mat-menu-item [routerLink]="['/snackbar']">snackbar</button>
+  <button mat-menu-item [routerLink]="['/buttontoggle']">buttontoggle</button>
+</mat-menu> -->
+  <div *ngIf="searchInput" class="backgroundSearch">
+      <mat-card class="cardStyle" [@enterAnimation]>
+          <mat-grid-list cols="1" rowHeight="50px">
+              <mat-grid-tile>
+                  <mat-card-header>
+                      <mat-card-title style="margin-bottom: 0px;">Best Match</mat-card-title>
+                  </mat-card-header>
+                  <mat-expansion-panel>
+                      <mat-expansion-panel-header>
+                          <mat-panel-title>
+                              Filters
+                          </mat-panel-title>
+                      </mat-expansion-panel-header>
+                      <mat-form-field>
+                          <input matInput placeholder="First name">
+                      </mat-form-field>
+                      <mat-form-field>
+                          <input matInput placeholder="Age">
+                      </mat-form-field>
+                  </mat-expansion-panel>
+              </mat-grid-tile>
+          </mat-grid-list>
+          <hr/>
+          <div malihu-scrollbar>
+              <mat-card-content>
+                  <mat-grid-list cols="1" rowHeight="50px">
+                      <mat-grid-tile *ngFor="let value of values">
+                          <img class="imageWidthData" src="http://localhost:4200/assets/{{value.image}}" style="margin-right: 15px;">
+                          <mat-card class="matCardStyle">
+                              <mat-card-title class="matCardTitleStyle">{{value.name}}</mat-card-title>
+                              <mat-card-subtitle class="matCardSubtitleStyle">{{value.roleAndPlace}}</mat-card-subtitle>
+                          </mat-card>
+                      </mat-grid-tile>
+                  </mat-grid-list>
+              </mat-card-content>
+          </div>
+      </mat-card>
   </div>
 </form>
